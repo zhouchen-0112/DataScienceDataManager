@@ -59,6 +59,26 @@ public class DataService {
     }
 
     public void exportData() {
-        System.out.println("Exporting data... (功能开发中)");
+        if (dataSet.getData().isEmpty()) {
+            System.out.println("Please import data first!");
+            return;
+        }
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("=== Export Data ===");
+        System.out.println("1. Export to CSV");
+        System.out.print("Select option: ");
+        int option = scanner.nextInt();
+        scanner.nextLine(); 
+
+        if (option == 1) {
+            System.out.print("Enter CSV export path: ");
+            String path = scanner.nextLine();
+
+            DataExporter exporter = new CsvExporter();
+            exporter.export(dataSet, path);
+        } else {
+            System.out.println("Invalid option.");
+        }
     }
 }
