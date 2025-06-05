@@ -1,9 +1,19 @@
 package service;
 
+import data.DataSet;
+import java.util.Scanner;
+
 public class DataService {
 
+    private DataSet dataSet = new DataSet();
+
     public void importData() {
-        System.out.println("Importing data... (功能开发中)");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter CSV file path: ");
+        String path = scanner.nextLine();
+
+        dataSet.loadFromCSV(path);
+        dataSet.printPreview(5);
     }
 
     public void applyTransformation() {
