@@ -20,7 +20,7 @@ public class App {
             System.out.print("Select option: ");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // consume newline
+            scanner.nextLine(); 
 
             switch (choice) {
                 case 1 -> dataService.importData();
